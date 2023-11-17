@@ -3,6 +3,7 @@ package com.example.mycar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -49,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         TextView_Reality = findViewById(R.id.txt_Reality);
 
         // Create LineChart
-        lineChart = findViewById(R.id.line_chart);
+//        lineChart = findViewById(R.id.line_chart);
 
         // Button Run
         Button_Std.setOnClickListener(new View.OnClickListener() {
@@ -74,56 +75,64 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // Create data for roads
-        List<Entry> entries1 = new ArrayList<>();
-        List<Entry> entries2 = new ArrayList<>();
-        List<Entry> entries3 = new ArrayList<>();
-
-
-        entries1.add(new Entry(0, 20));
-        entries1.add(new Entry(1, 24));
-        entries1.add(new Entry(2, 10));
-        entries1.add(new Entry(3, 4));
-        entries1.add(new Entry(4, 34));
-
-        entries2.add(new Entry(1, 25));
-        entries2.add(new Entry(2, 17));
-        entries2.add(new Entry(3, 2));
-        entries2.add(new Entry(4, 3));
-        entries2.add(new Entry(5, 19));
-
-        entries3.add(new Entry(0, 3));
-        entries3.add(new Entry(1, 10));
-        entries3.add(new Entry(4, 1));
-        entries3.add(new Entry(8, 40));
-        entries3.add(new Entry(5, 21));
-
-        // Create DataSet of the lines
-        LineDataSet dataSet1 = new LineDataSet(entries1, "Std ");
-        LineDataSet dataSet2 = new LineDataSet(entries2, "Forecast ");
-        LineDataSet dataSet3 = new LineDataSet(entries3, "Reality ");
-
-        // Set the color of the lines
-        dataSet1.setColor(Color.BLUE);
-        dataSet2.setColor(Color.GREEN);
-        dataSet3.setColor(Color.RED);
-
-        // Create LineData
-        LineData lineData = new LineData(dataSet1, dataSet2, dataSet3);
-
-        // x-axis format
-        XAxis xAxis = lineChart.getXAxis();
-        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
-
-        // y-axis format
-        YAxis leftYAxis = lineChart.getAxisLeft();
-        leftYAxis.setAxisMinimum(0); // Minimum value of the y-axis
-        YAxis rightYAxis = lineChart.getAxisRight();
-        rightYAxis.setEnabled(false); // Turn off the right y-axis
-
-        // Set up data for the chart
-        lineChart.setData(lineData);
-        lineChart.getDescription().setEnabled(false);
+//        // Create data for roads
+//        List<Entry> entries1 = new ArrayList<>();
+//        List<Entry> entries2 = new ArrayList<>();
+//        List<Entry> entries3 = new ArrayList<>();
+//
+//
+//        entries1.add(new Entry(0, 20));
+//        entries1.add(new Entry(1, 24));
+//        entries1.add(new Entry(2, 10));
+//        entries1.add(new Entry(3, 4));
+//        entries1.add(new Entry(4, 34));
+//
+//        entries2.add(new Entry(1, 25));
+//        entries2.add(new Entry(2, 17));
+//        entries2.add(new Entry(3, 2));
+//        entries2.add(new Entry(4, 3));
+//        entries2.add(new Entry(5, 19));
+//
+//        entries3.add(new Entry(0, 3));
+//        entries3.add(new Entry(1, 10));
+//        entries3.add(new Entry(4, 1));
+//        entries3.add(new Entry(8, 40));
+//        entries3.add(new Entry(5, 21));
+//
+//        // Create DataSet of the lines
+//        LineDataSet dataSet1 = new LineDataSet(entries1, "Std ");
+//        LineDataSet dataSet2 = new LineDataSet(entries2, "Forecast ");
+//        LineDataSet dataSet3 = new LineDataSet(entries3, "Reality ");
+//
+//        // Set the color of the lines
+//        dataSet1.setColor(Color.BLUE);
+//        dataSet2.setColor(Color.GREEN);
+//        dataSet3.setColor(Color.RED);
+//
+//        // Create LineData
+//        LineData lineData = new LineData(dataSet1, dataSet2, dataSet3);
+//
+//        // x-axis format
+//        XAxis xAxis = lineChart.getXAxis();
+//        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+//
+//        // y-axis format
+//        YAxis leftYAxis = lineChart.getAxisLeft();
+//        leftYAxis.setAxisMinimum(0); // Minimum value of the y-axis
+//        YAxis rightYAxis = lineChart.getAxisRight();
+//        rightYAxis.setEnabled(false); // Turn off the right y-axis
+//
+//        // Set up data for the chart
+//        lineChart.setData(lineData);
+//        lineChart.getDescription().setEnabled(false);
+        Button myButton = findViewById(R.id.start);
+        myButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, AutoComplete.class);
+                startActivity(intent);
+            }
+        });
     }
 }
 
